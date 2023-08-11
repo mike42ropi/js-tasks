@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let phn = prompt("phone number");
+        if ((phn.startsWith("07") || phn.startsWith("+254") || phn.startsWith("71") || phn.startsWith("01")) && (phn
+                .length == 13||phn.length == 13||phn.length == 12||phn.length == 10) ){
+                phn.substring(0, 1) == 0
+                console.log("254" + phn.substring(1))
+            } else {
+                not = console.log("not a valid phone number")
+            }
+    </script>
+</body>
+
+</html>
