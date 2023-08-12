@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let email= "admin@mail.com" ;
+       let password = "Admin@123";
+       attempts = 0;
+       for( i=1; i<4; i++) {
+        username = prompt("Enter email")
+        password1 = prompt("Enter password")
+        if ((username==email)&& password==password1) {
+            console.log("login succesful");
+            break;
+        } else if((username!=email)&& password!=password1){
+            console.log("Invalid username or password" + ((i)-attempts) + "attempts remaining")
+        } else{
+            console.log("blocked")
+        } 
+     }      
+    </script>
+</body>
+</html>
