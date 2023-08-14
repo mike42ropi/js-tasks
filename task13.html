@@ -18,9 +18,12 @@
             break;
         } else if((username!=email)&& password!=password1){
             console.log("Invalid username or password" + ((i)-attempts) + "attempts remaining")
-        } else{
+        } else if( attempts=(i>4)){
             console.log("blocked")
         } 
+        else{
+            console.log("invalid")
+        }
      }      
     </script>
 </body>
