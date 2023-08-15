@@ -58,10 +58,11 @@
         let nssf = (gross_salary * rnssf)
 
 
-        if (nssf <= 1800) {
+        if (gross_salary <= 18000) {
             nssf_contribution = Number(gross_salary) * Number(rnssf)
         } else {
-            nssf_contribution = 1800
+            nssf_contribution = 18000 *rnssf
+
         }
         console.log("Your NSSF contribution is: " + nssf_contribution);
     </script>
