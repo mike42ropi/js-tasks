@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        let birth = prompt("Enter Date of birth");
-
-
-       
-    
+        let birth = new Date("1997,6,19");
+        let today = new Date();
+        let year = today.getFullYear() - birth.getFullYear()
+        let month = today.getFullMonth() - birth.getFullmonth()
+        let day = today.getDate() - birth.getDate()
+        if (month<0) {
+            months = month + 12
+            
+        } else if (day<0) {
+            days = day + 12
+            
+        } 
     </script>
 </body>
+
 </html>

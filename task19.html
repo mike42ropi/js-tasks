@@ -75,18 +75,20 @@
         let taxable_income = gross_salary - (nssf_contribution + nhdf_contribution);
         console.log("Your Taxable income is: " + taxable_income)
         // PAYE
-        let rate1 = 0.24;
+        let rat1e = 0.1;
+        let rate1 = 0.25;
         let rate2 = 0.3;
-        let exemption = 0;
-        let paye1 = taxable_income * rate1;
-        let paye2 = taxable_income * rate2;
+        let exemption = 24000;
+        let releif = 2400
+        let paye1 = (taxable_income) * (rate1) - (releif) ;
+        let paye2 = (taxable_income) * (rate2) - (releif) ;
 
         if (gross_salary < 24000) {
-            payee = exemption
+            payee = ((exemption*rat1e)-releif)
         } else if (gross_salary > 24000 && gross_salary < 32332) {
-            payee = paye1
+            payee = paye1 
         } else {
-            payee = paye2
+            payee = paye2 
         }
         console.log("Your Paye is:" + payee)
     </script>
