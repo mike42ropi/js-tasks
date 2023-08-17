@@ -12,17 +12,17 @@
         // NHIF
         function findGrossSalary(bs, be) {
             let gross = bs + be;
-            return  gross;
+            return gross;
         }
         let calcGross = findGrossSalary(parseFloat(prompt("Enter basic salary")), parseFloat(prompt("Enter benefits")));
-        console.log("Your Gross Salary is: ",calcGross)
+        console.log("Your Gross Salary is: ", calcGross)
 
-    
+
 
         function findnhif(calcGross) {
-            let nhif_contribution =0;
-            
-            if (calcGross <= 5999) {    
+            let nhif_contribution = 0;
+
+            if (calcGross <= 5999) {
                 nhif_contribution = 150;
             } else if (calcGross >= 6000 && calcGross <= 7999) {
                 nhif_contribution = 300;
@@ -60,7 +60,7 @@
             return nhif_contribution
         }
         let calcnhif = findnhif(calcGross);
-        console.log("Your NHIF contribution is: ",calcnhif)
+        console.log("Your NHIF contribution is: ", calcnhif)
     </script>
 </body>
 

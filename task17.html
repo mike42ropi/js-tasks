@@ -9,20 +9,20 @@
 
 <body>
     <script>
-      // NHIF
-      function findGrossSalary(bs, be) {
+        // NHIF
+        function findGrossSalary(bs, be) {
             let gross = bs + be;
-            return  gross;
+            return gross;
         }
         let calcGross = findGrossSalary(parseFloat(prompt("Enter basic salary")), parseFloat(prompt("Enter benefits")));
-        console.log("Your Gross Salary is: ",calcGross)
+        console.log("Your Gross Salary is: ", calcGross)
 
-    
+
 
         function findnhif(calcGross) {
-            let nhif_contribution =0;
-            
-            if (calcGross <= 5999) {    
+            let nhif_contribution = 0;
+
+            if (calcGross <= 5999) {
                 nhif_contribution = 150;
             } else if (calcGross >= 6000 && calcGross <= 7999) {
                 nhif_contribution = 300;
@@ -60,38 +60,40 @@
             return nhif_contribution
         }
         let calcnhif = findnhif(calcGross);
-        console.log("Your NHIF contribution is: ",calcnhif)
+        console.log("Your NHIF contribution is: ", calcnhif)
 
 
         // NSSF
-        function findnssf(x,y) {
-            nssf_contribution= 0
+        function findnssf(x, y) {
+            nssf_contribution = 0
             if (calcGross < 18000) {
-                nssf_contribution = x*y
-            } else if( calcGross >= 18000) {
+                nssf_contribution = x * y
+            } else if (calcGross >= 18000) {
                 nssf_contribution = 18000 * rnssf
 
-            }else( nssf_contribution = "")
+            } else(nssf_contribution = "")
 
             return (nssf_contribution);
         }
-        
-        
-        let calcnssf = findnssf(calcGross,(rnssf = 0.06))
-        console.log("Your NSSF contribution is: ",calcnssf)
+
+
+        let calcnssf = findnssf(calcGross, (rnssf = 0.06))
+        console.log("Your NSSF contribution is: ", calcnssf)
 
         // NHDF
-        function findnhdf(m,l ){
-        
-        let housn = m*l;
-         return  housn
-        } 
-        
+        function findnhdf(m, l) {
+            housn = 0
+            if (calcGross <= 83400) {
+                housn = m * l
+            } else {
+                housn = 2500
+            }
+
+            return housn
+        }
+
         let calcnhdf = findnhdf(calcGross, (rnhdf = 0.03));
-        console.log("Your NHDF contribution is: ",calcnhdf);
-
-
-
+        console.log("Your NHDF contribution is: ", calcnhdf);
     </script>
 </body>
 
