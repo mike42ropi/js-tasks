@@ -9,88 +9,117 @@
 
 <body>
     <script>
-        // NHIF
-        let basicsalary = parseFloat(prompt("Enter basic salary"));
-        let benefits = parseFloat(prompt("Enter benefits"));
-        let gross_salary = basicsalary + benefits;
-        if (gross_salary < 5999) {
-            nhif_contribution = 150
-        } else if (gross_salary > 6000 && gross_salary < 7999) {
-            nhif_contribution = 300
-        } else if (gross_salary > 8000 && gross_salary < 11999) {
-            nhif_contribution = 400
-        } else if (gross_salary > 12000 && gross_salary < 14999) {
-            nhif_contribution = 500
-        } else if (gross_salary > 15000 && gross_salary < 19999) {
-            nhif_contribution = 600
-        } else if (gross_salary > 20000 && gross_salary < 24999) {
-            nhif_contribution = 750
-        } else if (gross_salary > 25000 && gross_salary < 29999) {
-            nhif_contribution = 850
-        } else if (gross_salary > 30000 && gross_salary < 34999) {
-            nhif_contribution = 900
-        } else if (gross_salary > 35000 && gross_salary < 39999) {
-            nhif_contribution = 950
-        } else if (gross_salary > 40000 && gross_salary < 44999) {
-            nhif_contribution = 1000
-        } else if (gross_salary > 45000 && gross_salary < 49999) {
-            nhif_contribution = 1100
-        } else if (gross_salary > 50000 && gross_salary < 59999) {
-            nhif_contribution = 1200
-        } else if (gross_salary > 60000 && gross_salary < 69999) {
-            nhif_contribution = 1300
-        } else if (gross_salary > 70000 && gross_salary < 79999) {
-            nhif_contribution = 1400
-        } else if (gross_salary > 80000 && gross_salary < 89999) {
-            nhif_contribution = 1500
-        } else if (gross_salary > 90000 && gross_salary < 99999) {
-            nhif_contribution = 1600
-        } else if (gross_salary > 99999) {
-            nhif_contribution = 1700
-        } else {
-            console.log("Invalid")
+          // NHIF
+          function findGrossSalary(bs, be) {
+            let gross = bs + be;
+            return  gross;
         }
-        console.log("Your Gross Salary is: " + gross_salary);
-        console.log("Your NHIF contribution is: " + nhif_contribution);
+        let calcGross = findGrossSalary(parseFloat(prompt("Enter basic salary")), parseFloat(prompt("Enter benefits")));
+        console.log("Your Gross Salary is: ",calcGross)
+
+    
+
+        function findnhif(calcGross) {
+            let nhif_contribution =0;
+            
+            if (calcGross <= 5999) {    
+                nhif_contribution = 150;
+            } else if (calcGross >= 6000 && calcGross <= 7999) {
+                nhif_contribution = 300;
+            } else if (calcGross >= 8000 && calcGross < 11999) {
+                nhif_contribution = 400;
+            } else if (calcGross >= 12000 && calcGross <= 14999) {
+                nhif_contribution = 500;
+            } else if (calcGross >= 15000 && calcGross <= 19999) {
+                nhif_contribution = 600;
+            } else if (calcGross >= 20000 && calcGross <= 24999) {
+                nhif_contribution = 750;
+            } else if (calcGross >= 25000 && calcGross <= 29999) {
+                nhif_contribution = 850;
+            } else if (calcGross >= 30000 && calcGross <= 34999) {
+                nhif_contribution = 900;
+            } else if (calcGross >= 35000 && calcGross <= 39999) {
+                nhif_contribution = 950;
+            } else if (calcGross >= 40000 && calcGross <= 44999) {
+                nhif_contribution = 1000;
+            } else if (calcGross >= 45000 && calcGross <= 49999) {
+                nhif_contribution = 1100;
+            } else if (calcGross >= 50000 && calcGross <= 59999) {
+                nhif_contribution = 1200;
+            } else if (calcGross >= 60000 && calcGross <= 69999) {
+                nhif_contribution = 1300;
+            } else if (calcGross >= 70000 && calcGross <= 79999) {
+                nhif_contribution = 1400;
+            } else if (calcGross >= 80000 && calcGross <= 89999) {
+                nhif_contribution = 1500;
+            } else if (calcGross >= 90000 && calcGross <= 99999) {
+                nhif_contribution = 1600;
+            } else {
+                nhif_contribution = 1700;
+            }
+            return nhif_contribution
+        }
+        let calcnhif = findnhif(calcGross);
+        console.log("Your NHIF contribution is: ",calcnhif)
+
+
         // NSSF
+        function findnssf(x,y) {
+            nssf_contribution= 0
+            if (calcGross < 18000) {
+                nssf_contribution = x*y
+            } else if( calcGross >= 18000) {
+                nssf_contribution = 18000 * rnssf
 
-        let rnssf = 0.06;
-        let nssf = (gross_salary * rnssf)
+            }else( nssf_contribution = "")
 
-
-        if (gross_salary <= 18000) {
-            nssf_contribution = Number(gross_salary) * Number(rnssf)
-        } else {
-            nssf_contribution = 18000 *rnssf
-
+            return (nssf_contribution);
         }
-        console.log("Your NSSF contribution is: " + nssf_contribution);
+        
+        
+        let calcnssf = findnssf(calcGross,(rnssf = 0.06))
+        console.log("Your NSSF contribution is: ",calcnssf)
 
         // NHDF
-        let rnhdf = 0.015;
-        let nhdf_contribution = gross_salary * rnhdf;
-        console.log("Your NHDF contribution is: " + nhdf_contribution)
+        function findnhdf(m,l ){
+        
+        let housn = m*l;
+         return  housn
+        } 
+        
+        let calcnhdf = findnhdf(calcGross, (rnhdf = 0.03));
+        console.log("Your NHDF contribution is: ",calcnhdf);
+
+
 
         // Taxable income
-        let taxable_income = gross_salary - (nssf_contribution + nhdf_contribution);
-        console.log("Your Taxable income is: " + taxable_income)
+        
+        function calcTaxableIncome(a,b,c){
+        let ti = a-(b+c)
+        return ti
+        } 
+       let calctaxincome = calcTaxableIncome(calcGross, calcnssf , calcnhdf)
+   
+        console.log("Your Taxable income is: ",calctaxincome)
         // PAYE
-        let rat1e = 0.1;
-        let rate1 = 0.25;
-        let rate2 = 0.3;
-        let exemption = 24000;
-        let releif = 2400
-        let paye1 = (taxable_income) * (rate1) - (releif) ;
-        let paye2 = (taxable_income) * (rate2) - (releif) ;
+        function findpayee(u,v,w,x,y){
+        
+        tax = 0
 
-        if (gross_salary < 24000) {
-            payee = ((exemption*rat1e)-releif)
-        } else if (gross_salary > 24000 && gross_salary < 32332) {
-            payee = paye1 
-        } else {
-            payee = paye2 
+        if (calctaxincome < 24001) {
+            tax = 0
+        } else if (calctaxincome > 24000 && calctaxincome < 32333) {
+           tax = ((2400 + (calctaxincome-24000)*v)-y)
+        } else if (calctaxincome <=32333 && calctaxincome <=500000) {
+           tax = ((4883 + (calctaxincome-32333)*w)-y)
+        } else{
+            tax = ((4883 + (calctaxincome-500000)*x)-y)
         }
-        console.log("Your Paye is:" + payee)
+        return tax
+        }
+    
+        let calcpaye = findpayee(calctaxincome ,(rate1=0.25),(rate2=0.3),(rate3=0.35),(releif=2400))
+        console.log("Your Paye is:", calcpaye)
     </script>
 </body>
 
