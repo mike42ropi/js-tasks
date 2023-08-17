@@ -17,7 +17,7 @@
         let calcGross = findGrossSalary(parseFloat(prompt("Enter basic salary")), parseFloat(prompt("Enter benefits")));
         console.log(calcGross)
 
-        let calcGross = gross
+        
         function calcnhif(calcGross) {
             if (calcGross <= 5999) {
                 nhif_contribution = 150;
@@ -77,15 +77,14 @@
         console.log(findnssf)
 
         // NHDF
-        function calcnhdf(nhdf){
+        function calcnhdf(calcGross, rnhdf = 0.015){
        
-        let housn = Number(calcGross) * Number(rnhdf);
+        let housn = calcGross * rnhdf;
          return ("Your NHDF contribution is: " + housn)
         } 
-        let rnhdf = 0.015;
-        let nhdf = calcGross * rnhdf
-        let findnhdf = calcnhdf(nhdf)
-        console.log(findnhdf)
+        f
+        let findnhdf = calcnhdf(calcGross, rnhdf = 0.015);
+        console.log(findnhdf);
 
         // Taxable income
         let taxable_income = gross_salary - (nssf_contribution + nhdf_contribution);
