@@ -19,7 +19,7 @@
 
     
 
-        function calcnhif(calcGross) {
+        function findnhif(calcGross) {
             let nhif_contribution =0;
             
             if (calcGross <= 5999) {    
@@ -59,12 +59,12 @@
             }
             return nhif_contribution
         }
-        let findnhif = calcnhif(calcGross);
-        console.log("Your NHIF contribution is: ",findnhif)
+        let calcnhif = findnhif(calcGross);
+        console.log("Your NHIF contribution is: ",calcnhif)
 
 
         // NSSF
-        function calcnssf(x,y) {
+        function findnssf(x,y) {
             nssf_contribution= 0
             if (calcGross < 18000) {
                 nssf_contribution = x*y
@@ -77,50 +77,57 @@
         }
         
         
-        let findnssf = calcnssf(calcGross,(rnssf = 0.06))
-        console.log("Your NSSF contribution is: ",findnssf)
+        let calcnssf = findnssf(calcGross,(rnssf = 0.06))
+        console.log("Your NSSF contribution is: ",calcnssf)
 
         // NHDF
-        function calcnhdf(calcGross, rnhdf ){
+        function findnhdf(m,l ){
         
-        let housn = calcGross* rnhdf;
+        let housn = m*l;
          return  housn
         } 
-        let rnhdf = 0.3;
-        let findnhdf = calcnhdf(calcGross, rnhdf);
-        console.log("Your NHDF contribution is: ",findnhdf);
+        
+        let calcnhdf = findnhdf(calcGross, (rnhdf = 0.03));
+        console.log("Your NHDF contribution is: ",calcnhdf);
 
 
 
         // Taxable income
         
-        function findTaxableIncome(a,b,c){
+        function calcTaxableIncome(a,b,c){
         let ti = a-(b+c)
         return ti
         } 
-       let findtaxincome = findTaxableIncome(calcGross, findnssf , findnhdf)
+       let calctaxincome = calcTaxableIncome(calcGross, calcnssf , calcnhdf)
    
-        console.log("Your Taxable income is: ",findtaxincome)
+        console.log("Your Taxable income is: ",calctaxincome)
         // PAYE
-        function calpayee(u,v,w,x,y)
+        function findpayee(u,v,w,x,y){
         
-        let 
-        let paye1 = (u) * (v) - (y);
-        let paye2 = (taxable_income) * (rate2) - (releif);
+        tax = 0
 
-        if (findtaxincome  24000) {
-            findtaxincome-24000
-        } else if (gross_salary > 24000 && gross_salary < 32332) {
-            payee = paye1
-        } else {
-            payee = paye2
+        if (calctaxincome < 24001) {
+            tax = 0
+        } else if (calctaxincome > 24000 && calctaxincome < 32333) {
+           tax = ((2400 + (calctaxincome-24000)*v)-y)
+        } else if (calctaxincome <=32333 && calctaxincome <=500000) {
+           tax = ((4883 + (calctaxincome-32333)*w)-y)
+        } else{
+            tax = ((4883 + (calctaxincome-500000)*x)-y)
         }
-        calpayee(findtaxincome,(rat1e = 0.1),(rate1 = 0.25),(rate2 = 0.3),(releif = 2400))
-        console.log("Your Paye is:" + payee)
+        return tax
+        }
+    
+        let calcpaye = findpayee(calctaxincome ,(rate1=0.25),(rate2=0.3),(rate3=0.35),(releif=2400))
+        console.log("Your Paye is:", calcpaye)
         // Net Salary
+        function findnetSalary(n1,n2,n3,n4,n5){
+            let net_s = n1-(n2+n3+n4+n5) 
+            return net_s
+        }
 
-        let net_salary = gross_salary - (nhif_contribution + nhdf_contribution + nssf_contribution + payee)
-        console.log("Your Net salary is:" + " " + net_salary)
+        calcnetSalary = findnetSalary(calcGross,calcnhif,calcnhdf,calcnssf,calcpaye)
+        console.log("Your Net salary is:", calcnetSalary)
     </script>
 </body>
 
